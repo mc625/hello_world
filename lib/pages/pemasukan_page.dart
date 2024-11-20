@@ -1,50 +1,191 @@
 import 'package:flutter/material.dart';
 
 class PemasukanPage extends StatelessWidget {
-  final TextEditingController transaksiController = TextEditingController();
-  final TextEditingController selesaiController = TextEditingController();
-  final TextEditingController bayarController = TextEditingController();
-  final TextEditingController totalController = TextEditingController();
-
-  PemasukanPage({super.key});
-
-  void _submitPemasukan(BuildContext context) {
-    // Logika untuk menyimpan data pemasukan
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Pemasukan berhasil ditambahkan')),
-    );
-  }
+  const PemasukanPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Pemasukan')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      appBar: AppBar(
+        title: const Text('Laporan'),
+        backgroundColor: Colors.blue,
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            TextField(
-              controller: transaksiController,
-              decoration: const InputDecoration(labelText: 'Transaksi'),
+            const Text(
+              'TOTAL : Rp 3.330.000',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  backgroundColor: Colors.green),
             ),
-            TextField(
-              controller: selesaiController,
-              decoration: const InputDecoration(labelText: 'Selesai'),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/invoice');
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.all(16.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.blue[100],
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: Colors.blue, width: 1.5),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Data Selesai 1',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Jake'),
+                        Text('Rp 200.000'),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ),
-            TextField(
-              controller: bayarController,
-              decoration: const InputDecoration(labelText: 'Bayar'),
-              keyboardType: TextInputType.number,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/invoice');
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.all(16.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.blue[100],
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: Colors.blue, width: 1.5),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Data Selesai 2',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Joe'),
+                        Text('Rp 500.000'),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ),
-            TextField(
-              controller: totalController,
-              decoration: const InputDecoration(labelText: 'Total'),
-              keyboardType: TextInputType.number,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/invoice');
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.all(16.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.blue[100],
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: Colors.blue, width: 1.5),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Data Selesai 3',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Mike'),
+                        Text('Rp 230.000'),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ),
-            const SizedBox(height: 16),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/invoice');
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.all(16.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.blue[100],
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: Colors.blue, width: 1.5),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Data Selesai 4',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Alex'),
+                        Text('Rp 400.000'),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/invoice');
+              },
+              child: Container(
+                margin: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: const EdgeInsets.all(16.0),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.blue[100],
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: Colors.blue, width: 1.5),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      'Data Selesai 5',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Jarwo'),
+                        Text('Rp 2.000.000'),
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
             ElevatedButton(
-              onPressed: () => _submitPemasukan(context),
-              child: const Text('Submit'),
+              onPressed: () {
+                Navigator.pushNamed(context, '/dashboard');
+              },
+              child: const Text('Kembali'),
             ),
           ],
         ),

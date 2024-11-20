@@ -6,6 +6,7 @@ import 'pages/paket_page.dart';
 import 'pages/sewa_page.dart';
 import 'pages/invoice_page.dart';
 import 'pages/pemasukan_page.dart';
+import 'pages/pilihbarang.dart';
 
 void main() {
   runApp(const RentalApp());
@@ -24,14 +25,13 @@ class RentalApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => LoginPage(),
-        '/dashboard': (context) => DashboardPage(),
+        '/dashboard': (context) => const DashboardPage(),
         '/barang': (context) => BarangPage(),
         '/paket': (context) => PaketPage(),
-        '/sewa': (context) => SewaPage(),
-        '/invoice': (context) => InvoicePage(
-              data: '1',
-            ),
-        '/pemasukan': (context) => PemasukanPage(),
+        '/sewa': (context) => const SewaPage(),
+        '/invoice': (context) => const InvoicePage(),
+        '/pemasukan': (context) => const PemasukanPage(),
+        '/pbarang': (context) => const PilihBarang(),
       },
     );
   }

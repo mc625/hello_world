@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PaketPage extends StatefulWidget {
-  const PaketPage({super.key});
+class PilihBarang extends StatefulWidget {
+  const PilihBarang({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -9,16 +9,16 @@ class PaketPage extends StatefulWidget {
 }
 
 //isian untuk inputan barang
-class _PilihBarangState extends State<PaketPage> {
+class _PilihBarangState extends State<PilihBarang> {
   final List<String> items = [
     'Barang 1',
     'Barang 2',
     'Barang 3',
     'Barang 4',
-    'Barang 5',
-    'Barang 6',
-    'Barang 7',
-    'Barang 8'
+    'Paket 1',
+    'Paket 2',
+    'Paket 3',
+    'Paket 4'
   ];
   List<bool> checkedItems = [
     false,
@@ -51,31 +51,36 @@ class _PilihBarangState extends State<PaketPage> {
     });
   }
 
-  void _submitPaket(BuildContext context) {
-    // Tambahkan codinglogika penyimpanan paket disini
+  void _updateQuantity(int index, String value) {
+    int? quantity = int.tryParse(value);
+    if (quantity != null && quantity >= 0) {
+      setState(() {
+        quantities[index] = quantity;
+      });
+    }
+  }
+
+  void _submitSelection(BuildContext context) {
+    for (int i = 0; i < items.length; i++) {
+      if (checkedItems[i]) {}
+    }
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Paket berhasil ditambahkan')),
+      const SnackBar(content: Text('Barang berhasil dipilih')),
     );
-    Navigator.pushReplacementNamed(context, '/dashboard');
+    Navigator.pushReplacementNamed(context, '/sewa');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('+Paket'),
+        title: const Text('Pilih Barang'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            const TextField(
-              decoration: InputDecoration(labelText: 'Nama Paket'),
-            ),
-            const TextField(
-              decoration: InputDecoration(labelText: 'Biaya'),
-            ),
             Expanded(
               child: ListView.builder(
                 itemCount: items.length,
@@ -92,6 +97,22 @@ class _PilihBarangState extends State<PaketPage> {
                           Text(items[index]),
                         ],
                       ),
+                      SizedBox(
+                        width: 80,
+                        height: 40,
+                        child: TextField(
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            labelText: '', //isian text jumlah
+                            border: OutlineInputBorder(),
+                          ),
+                          onChanged: (value) => _updateQuantity(index, value),
+                          enabled: checkedItems[index],
+                          controller: TextEditingController(
+                            text: quantities[index].toString(),
+                          ),
+                        ),
+                      ),
                     ],
                   );
                 },
@@ -99,7 +120,7 @@ class _PilihBarangState extends State<PaketPage> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => _submitPaket(context),
+              onPressed: () => _submitSelection(context),
               style: ElevatedButton.styleFrom(),
               child: const Text(
                 'Submit',

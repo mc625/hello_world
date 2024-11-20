@@ -1,0 +1,49 @@
+datamhs = {
+    "210001": {'nama': 'Novita', 'ipk': 3.5, 'matakuliah': [('Matematika', 80, 'B'), ('Jaringan', 90, 'A'), ('Pemrograman', 75, 'B')]},
+    "210003": {'nama': 'Budi', 'ipk': 3.7, 'matakuliah': [('B. Inggris', 88, 'A'), ('Statistika', 92, 'A'), ('Desain Database', 60, 'C')]},
+    "210002": {'nama': 'Andika', 'ipk': 3.2, 'matakuliah': [('Komputer', 85, 'A'), ('Sistem Manajemen', 70, 'B'), ('Kalkulus', 55, 'C')]}
+}
+
+def tambahmhs():
+    nim = input("Masukkan NIM: ")
+    nama = input("Masukkan Nama: ")
+    ipk = float(input("Masukkan IPK: "))
+    datamhs[nim] = {'nama': nama, 'ipk': ipk, 'matakuliah': []}
+
+def input_nilai():
+    nim = input("Masukkan NIM: ")
+    if nim in datamhs:
+        mk = input("Masukkan Nama Matakuliah: ")
+        nilai = float(input("Masukkan Nilai Angka: "))
+        datamhs[nim]['matakuliah'].append((mk, nilai, konversi_nilai(nilai)))
+
+def tsemua_mhs():
+    for nim in sorted(datamhs):
+        m = datamhs[nim]
+        print(f"{nim} - {m['nama']} (IPK: {m['ipk']})")
+
+def tnilai_mhs():
+    nim = input("Masukkan NIM: ")
+    if nim in datamhs:
+        m = datamhs[nim]
+        for mk, nilai, huruf in sorted(m['matakuliah'], key=lambda x: x[1], reverse=True):
+            print(f"{mk}: {nilai} ({huruf})")
+
+def konversi_nilai(nilai):
+    return 'A' if nilai >= 85 else 'B' if nilai >= 70 else 'C' if nilai >= 55 else 'D' if nilai >= 40 else 'E'
+
+def menu():
+    while True:
+        print("1. tambahmhs Mahasiswa")
+        print("2. Input Nilai")
+        print("3. Tampilkan semua data mahasiswa")
+        print("4. Tampilkan nilai mahasiswa")
+        print("5. Keluar")
+        pilihan = input("Pilih: ")
+        if pilihan == '1': tambahmhs()
+        elif pilihan == '2': input_nilai()
+        elif pilihan == '3': tsemua_mhs()
+        elif pilihan == '4': tnilai_mhs()
+        elif pilihan == '5': break
+        
+menu()
