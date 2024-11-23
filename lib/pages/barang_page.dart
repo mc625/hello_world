@@ -11,13 +11,14 @@ class BarangPage extends StatelessWidget {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Barang berhasil ditambahkan')),
     );
+    Navigator.pushReplacementNamed(context, '/dbarang');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('+ Barang'),
+        title: const Text('Tambah Barang'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(

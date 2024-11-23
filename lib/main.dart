@@ -5,8 +5,10 @@ import 'pages/barang_page.dart';
 import 'pages/paket_page.dart';
 import 'pages/sewa_page.dart';
 import 'pages/invoice_page.dart';
-import 'pages/pemasukan_page.dart';
+import 'pages/laporan_page.dart';
 import 'pages/pilihbarang.dart';
+import 'pages/data_barang.dart';
+import 'pages/data_paket.dart';
 
 void main() {
   runApp(const RentalApp());
@@ -28,10 +30,12 @@ class RentalApp extends StatelessWidget {
         '/dashboard': (context) => const DashboardPage(),
         '/barang': (context) => BarangPage(),
         '/paket': (context) => PaketPage(),
-        '/sewa': (context) => const SewaPage(),
-        '/invoice': (context) => const InvoicePage(),
-        '/pemasukan': (context) => const PemasukanPage(),
-        '/pbarang': (context) => const PilihBarang(),
+        '/sewa': (context) => SewaPage(),
+        '/invoice': (context) => InvoicePage(),
+        '/pemasukan': (context) => LaporanPage(),
+        '/pbarang': (context) => PilihBarang(),
+        '/dbarang': (context) => DataBarang(),
+        '/dpaket': (context) => DataPaket(),
       },
     );
   }

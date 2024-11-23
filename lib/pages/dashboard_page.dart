@@ -30,14 +30,19 @@ class DashboardPage extends StatelessWidget {
                     onTap: () => Navigator.pushNamed(context, '/dashboard'),
                   ),
                   ListTile(
+                    title: const Text('Dashboard',
+                        style: TextStyle(color: Colors.white)),
+                    onTap: () => Navigator.pushNamed(context, '/dashboard'),
+                  ),
+                  ListTile(
                     title: const Text('+ Barang',
                         style: TextStyle(color: Colors.white)),
-                    onTap: () => Navigator.pushNamed(context, '/barang'),
+                    onTap: () => Navigator.pushNamed(context, '/dbarang'),
                   ),
                   ListTile(
                     title: const Text('+ Paket',
                         style: TextStyle(color: Colors.white)),
-                    onTap: () => Navigator.pushNamed(context, '/paket'),
+                    onTap: () => Navigator.pushNamed(context, '/dpaket'),
                   ),
                   ListTile(
                     title: const Text('+ Sewa',
@@ -171,6 +176,13 @@ class DashboardPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue,
+        child: const Icon(Icons.add),
+        onPressed: () {
+          Navigator.pushNamed(context, '/sewa');
+        },
       ),
     );
   }

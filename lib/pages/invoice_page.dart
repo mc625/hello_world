@@ -9,6 +9,14 @@ class InvoicePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Invoice'),
         backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.home),
+            onPressed: () {
+              Navigator.pushNamed(context, '/dashboard');
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

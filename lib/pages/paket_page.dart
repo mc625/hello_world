@@ -56,7 +56,7 @@ class _PilihBarangState extends State<PaketPage> {
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Paket berhasil ditambahkan')),
     );
-    Navigator.pushReplacementNamed(context, '/dashboard');
+    Navigator.pushReplacementNamed(context, '/dpaket');
   }
 
   @override
